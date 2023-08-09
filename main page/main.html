@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="alternate" href="main.css" type="application/atom+xml" title="Atom">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SyncIn</title>
 </head>
 <body>
-    
+    <form onsubmit="event.preventDefault();" role="search">
+        <label for="search">Search</label>
+        <input  id="search" type="search" placeholder="Search..." autofocus required />
+        <button  id="gobutton"  type="submit"  onclick="searches()">Go</button>    
+      </form>
 </body>
+<script src="../ladingPage/jQuary.js" ></script>
+<script scr="main.js"> </script>
 </html>
