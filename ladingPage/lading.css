@@ -25,16 +25,10 @@ nav{
 }
 
 .connect a:hover{
-    background-color: rgb(47, 47, 47);
+    background-color:#00AADD;
     color:white;
     padding: 10px 20px;
  }
- 
-
-
-
-
-
 .logo i{
     color: white;
     font-size: 40px;
@@ -42,8 +36,29 @@ nav{
 
 .main{
     min-height: 100vh;
-    background-image: url(backk.png);
+    background-image: url(blue-stationery-flat-lay.jpg);
     background-repeat: no-repeat;
-    background-position: center;
+    background-size: cover ; 
+    
+    filter: blur(8px);
+}
+.maintext{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.maintext h1{
+    font-size: 70px;
+    color:  #FFFAFA;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition-duration: 1.5s;
 }
 
+.maintext h1:hover{
+   transform: scale(1.1);
+}

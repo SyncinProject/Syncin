@@ -10,7 +10,6 @@
 }
 
 .container{
-    border: 1px solid black;
     min-height: 90vh;
     display: flex;
     justify-content: center;
@@ -26,7 +25,6 @@
     margin-bottom: 20px;
     padding: 10px 30px;
     font-size: 20px;
-    border-radius: 20px;
 }
 
 .info input:focus{
@@ -46,6 +44,7 @@
     margin-right: auto;
     border: 1px white solid;
     transition-duration: 1s;
+    font-size: 20px;
 }
 .info button:hover{
    transform: scale(1.2);

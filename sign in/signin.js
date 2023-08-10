@@ -73,10 +73,10 @@ $("#signin").on("click",function(){
     var level=$("#lvl").val()
     var society=$('#forceo').val()
     var regex = /^(?=.*[a-z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    if(email === ""){
+    if(name === ""){
+     $("#alert").text("Please Enter Your Name ")
+    }else if(email === ""){
      $("#alert").text("Please Enter Your Email")
-    }else if(name === ""){
-     $("#alert").text("Please Enter Your Name")
     }
  else if(regex.test(pass)===false){
      $("#alert").text("use a strong password")
@@ -93,7 +93,8 @@ $("#signin").on("click",function(){
       }
       userss.candidateAdd(name,pass,email,level,skills)
       var candidats = JSON.stringify(userss.candidate)
-      localStorage.setItem('data', candidats)        
+      localStorage.setItem('data', candidats) 
+      window.location.href='../log in/login.html'
  }else{
     if(society===''){
         $("#alert").text("Please Enter Your society name")
