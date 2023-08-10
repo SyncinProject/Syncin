@@ -1,30 +1,29 @@
 //login check//
-var workers=JSON.parse(localStorage.getItem("data"))
+var workers=JSON.parse(localStorage.getItem("worker"))
+var employment=JSON.parse(localStorage.getItem("recruiter"))
+var arr=workers.concat(employment)
 
-var employment=JSON.parse(localStorage.getItem("info"))
-
+var user=[]
 $('#login').on('click',function(){
-     var emailcheck=$('#email').val()
-    var passcheck=$('#password').val()
-for(var i=0;employment.length>i;i++){
-if(employment[i].mail.includes(emailcheck) && employment[i].password.includes(passcheck))
-{
-    window.location.href='main.html'
-} 
+   
+ var emailcheck=$('#email').val()
+ var passcheck=$('#password').val()
 
-    else {
-        $('#alert').text('Please try again ')
-    }   
-}
-for(var i=0;workers.length>i;i++){
-    if(workers[i].mail.includes(emailcheck) && workers[i].password.includes(passcheck))
-    {
-        window.location.href='main.html'
+for(var i=0;arr.length>i;i++){
+    if((arr[i].email==emailcheck) && (arr[i].password==passcheck))
+    {   
+        
+        user.slice(1)
+        user.push(arr[i])
+        var users = JSON.stringify(user)
+        localStorage.setItem('CurrentUser', users)
+        window.location.href="http://127.0.0.1:5500/main%20page/main.html"
     } 
     
         else {
             $('#alert').text('Please try again ')
         }   
-    }
+  
+    }})
 
-})
+

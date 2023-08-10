@@ -13,6 +13,7 @@ $('#worker').on("click",function(){
     $("#lvl").css("display","block")
     $("#forceo").css("display","none")
 })
+
 var i=0
  function idGenerateur(){
     return ++i
@@ -25,17 +26,19 @@ function candidate(name,password,email,level,skills){
    password:password,
    email:email,
    level:level,
-   skills:skills
+   skills:skills,
+   status :"worker"
     } 
 }
 
-function recruiter(name,societe,mail,password){
+function recruiter(name,societe,email,password){
     return {
     id:idGenerateur(),
     name:name,
     societe:societe,
     password:password,
-    mail:mail,
+    email:email,
+    status:"recruiter"
     }
 }
 
@@ -56,8 +59,8 @@ var userss=Users()
 }
 
 
-function recruiterAdd(name,societe,mail,password){
-    this.recruiter.push(recruiter(name,societe,mail,password))
+function recruiterAdd(name,societe,email,password){
+    this.recruiter.push(recruiter(name,societe,email,password))
 
 }
 
@@ -93,17 +96,24 @@ $("#signin").on("click",function(){
       }
       userss.candidateAdd(name,pass,email,level,skills)
       var candidats = JSON.stringify(userss.candidate)
-      localStorage.setItem('data', candidats) 
-      window.location.href='../log in/login.html'
- }else{
+      localStorage.setItem('worker', candidats) 
+      window.location.href='http://127.0.0.1:5500/log%20in/login.html'
+ }
+
+ if($("#recruiter").is(':checked')){
     if(society===''){
         $("#alert").text("Please Enter Your society name")
-      }
+      }else{
       userss.recruiterAdd(name,society,email,pass)
       var recruiters= JSON.stringify(userss.recruiter)
-      localStorage.setItem('info', recruiters)
+      localStorage.setItem('recruiter', recruiters)
+      window.location.href='http://127.0.0.1:5500/log%20in/login.html'}
+      
+
  }
-}
+    
+      
+ }
 )
 
 
