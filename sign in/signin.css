@@ -61,3 +61,8 @@
 #forworker , #forceo,#lvl,#Job{
 display: none;
 }
+
+#alert{
+  font-size: 20px;
+  margin: 10px;
+}
