@@ -53,6 +53,9 @@ $("#username").text(currentUser[0].name)
 function hidePosting(currentUser){
 if(currentUser[0].status==="worker"){
   $(".addpost").css("display","none")
+  $(".apply").on("click",function(){
+    document.location.href="../form/form.html"
+  })
 } 
 }
 
@@ -63,11 +66,7 @@ if(currentUser[0].status==="recruiter"){
     $(".apply").css("background","red")
 }}
 
-//generate id
- var i=0
- function idGenerateur(){
-    return ++i
- }
+
 
  //factory function for the card
     function card(id,img,title,job,location,description){
@@ -84,21 +83,30 @@ if(currentUser[0].status==="recruiter"){
 //creation of the main object 
 function Cards(){
     var cards={}
+    cards.id = 0
     cards.cardAdd=cardAdd
     cards.post=!!JSON.parse(localStorage.getItem("posts"))?JSON.parse(localStorage.getItem("posts")):[]
+    cards.generate = idGenerateur
     return cards
+}
+
+//generate id
+
+var idGenerateur = function(){
+   return this.id ++ 
 }
 
 //add a card into 
 function cardAdd(obj){
-    this.post.push(obj)
+    this.post.push(obj) 
 }
 //Creation of the instance
 var cardss=Cards ()
 
 //inject the main 
 injectCards(cardss.post)
-
+hideApply(currentUser)
+hidePosting(currentUser)
  //whene a recuter add a enw post 
 $("#postnow").on('click',function(){
     var img=$("#img").val()
@@ -139,6 +147,8 @@ $("#postnow").on('click',function(){
     localStorage.setItem('posts', cards) 
    // adding the new card to the container
     $(".container").append(element)
+    hideApply(currentUser)
+    window.location.href=("main.html")
     }
 
  // adding the new card to the localStorage 
@@ -154,6 +164,7 @@ $("#postnow").on('click',function(){
 
 //funtion of injection
 function injectCards(arr){
+    
     each(arr, function (variable) {
             $('.container').append(`<div class="card">
             <img src="${variable.img}">
@@ -170,8 +181,9 @@ function injectCards(arr){
                 </div>
             </div>
         </div> `)
+        
      } )
-
+     
 }
 
  function myfunction(id){
@@ -184,10 +196,9 @@ function injectCards(arr){
 
 
     
-
-
-
-
+    var id = JSON.stringify(cardss.id)
+    localStorage.setItem('id', id) 
+    var ids=JSON.parse(localStorage.getItem("id"))
 
 
 //search 
@@ -203,5 +214,4 @@ return element.title.toUpperCase() == search.toUpperCase() || element.job.toUppe
 
 
 //hiding after injuction 
-hideApply(currentUser)
-hidePosting(currentUser)
+
