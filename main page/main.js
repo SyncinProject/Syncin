@@ -61,9 +61,6 @@ function hideApply(currentUser){
 if(currentUser[0].status==="recruiter"){
     $(".apply").text("delete")
     $(".apply").css("background","red")
-    $(".apply").on("click",function(){
-        alert("delete")
-    })
 }}
 
 //generate id
@@ -130,8 +127,8 @@ $("#postnow").on('click',function(){
             <div class="location">
                 <h4 id="location">${location}</h4>
                 <i class="fa-solid fa-location-dot"></i>
-            </div>
-            <button class="apply" id="${id}">Apply</button>
+            </div>  
+            <button class="apply" id=${id} onclick='myfunction(${id})>Apply</button>
         </div>
     </div>
 </div>`
@@ -169,7 +166,7 @@ function injectCards(arr){
                         <h4 id="location">${variable.location}</h4>
                         <i class="fa-solid fa-location-dot"></i>
                     </div>
-                    <button class="apply">Apply</button>
+                    <button class="apply" >Apply</button>
                 </div>
             </div>
         </div> `)
@@ -177,6 +174,24 @@ function injectCards(arr){
 
 }
 
+ function myfunction(id){
+    each(cardss.post,function(element,index){
+        if(id===element.id){
+            cardss.post.splice(index,1)
+        }
+    })
+    }  
+
+
+    
+
+
+
+
+
+
+
+//search 
 $("#tosearch").on('click',function(){ 
     $('.container').empty()
     var search= $("#search").val()
@@ -187,11 +202,7 @@ return element.title.toUpperCase() == search.toUpperCase() || element.job.toUppe
     injectCards(filtred)
 })
 
-function deletect(){
-    
-}
-
 
 //hiding after injuction 
-hidePosting(currentUser)
 hideApply(currentUser)
+hidePosting(currentUser)
