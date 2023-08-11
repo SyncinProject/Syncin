@@ -5,7 +5,12 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body{
+    background-image: url(bureau-moderne-grande-fenetre-table-chaises-plante-dessus.jpg);
+    background-attachment: fixed;
+    background-size: cover;
 
+}
 .navbar{
     background-color: #0A66C2;
     display: flex;
@@ -85,6 +90,7 @@
     border: 1px black solid;
     height: 80%;
     margin-bottom: 20px;
+    background-color: white;
 }
 
 
@@ -106,7 +112,7 @@
     display: flex;
     justify-content: space-between;
 }
-.locbtn #apply{
+.locbtn .apply{
     padding: 5px 30px ;
     border-radius: 20px;
     border: none;
@@ -115,6 +121,50 @@
     color: white;
     transition-duration: 0.7s;
 }
-.locbtn #apply:hover{
+.locbtn .apply:hover{
     transform: scale(1.1);
 }
+.addpost{
+    background-color: #eee;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+.addpost input{
+    margin-left: 5px;
+    text-align: center;
+}
+.addpost button{
+    margin-top:10px;
+    padding: 5px 10px;
+    background-color: #0A66C2;
+    color: white;
+    border: 1px white solid;
+    transition-duration: 0.7s;
+    margin-left: 20px;
+}
+
+.addpost button:hover{
+   transform: scale(1.1);
+
+}
+.profile{
+    display: flex;
+    align-items: center;
+}
+.profile h3{
+    font-size: 15px;
+}
+.newclass{
+    display: none;
+}
+.all h5{
+    text-align: center;
+    font-size: 20px;
+
+}
+
